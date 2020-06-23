@@ -1,10 +1,24 @@
+// The MIT License (MIT)
 //
-//  ALRadioButton.swift
-//  Wallet
+// Copyright (c) 2020 Alexandr Guzenko (alxrguz@icloud.com)
 //
-//  Created by Alexandr Guzenko on 21.06.2020.
-//  Copyright © 2020 Alexandr Guzenko. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import UIKit
 
@@ -30,6 +44,10 @@ public final class ALRadioButton: UIView {
     private lazy var separatorView = UIView()
     
     // MARK: - Open Proporties
+    
+    /**
+        button state
+    */
     public var isSelected: Bool = false {
         didSet {
             radioIndicator.isSelected = isSelected
@@ -37,48 +55,76 @@ public final class ALRadioButton: UIView {
         }
     }
     
+    /**
+        `titleLabel` color when button selected
+    */
     public var selectedTitleColor: UIColor = .systemBlue {
         didSet {
             setupColors()
         }
     }
     
+    /**
+        `titleLabel` color when button unselected
+    */
     public var unselectedTitleColor: UIColor = .black {
         didSet {
             setupColors()
         }
     }
     
+    /**
+        `radioIndicator` color when button selected
+    */
     public var selectedIndicatorColor: UIColor = .systemBlue {
         didSet {
             radioIndicator.selectedColor = selectedIndicatorColor
         }
     }
     
+    /**
+        `radioIndicator` color when button unselected
+    */
     public var unselectedIndicatorColor: UIColor = .systemBlue {
         didSet {
             radioIndicator.unselectedColor = unselectedIndicatorColor
         }
     }
     
+    /**
+        Separator color
+
+        - Note: Actual for `ALRadioButtonStyle.standard` style
+    */
     public var separatorColor: UIColor = .lightGray {
         didSet {
             separatorView.backgroundColor = separatorColor
         }
     }
     
-    public var itemHeight: CGFloat = 50 {
+    /**
+        View height at which indicator and title are located, subtitle is not included here
+    */
+    public var buttonHeight: CGFloat = 50 {
         didSet {
-            itemHeightConstraint?.constant = itemHeight
+            itemHeightConstraint?.constant = buttonHeight
         }
     }
     
+    /**
+        `subtitleLabel` offset from title bottom anchor
+    */
     public var subtitleTopOffset: CGFloat = 8 {
         didSet {
             subtitleOffsetConstraint?.constant = subtitleTopOffset
         }
     }
     
+    /**
+        separator offset from title or subtitle (if added) bottom anchor
+        
+        - Note: Actual for `ALRadioButtonStyle.standard` style
+    */
     public var separatorTopOffset: CGFloat = 8 {
         didSet {
             separatorOffsetConstraint?.constant = -separatorTopOffset
@@ -89,10 +135,10 @@ public final class ALRadioButton: UIView {
     private var itemHeightConstraint: NSLayoutConstraint?
     private var subtitleOffsetConstraint: NSLayoutConstraint?
     private var separatorOffsetConstraint: NSLayoutConstraint?
-    private var style: ALRadioGroupStyle
+    private var style: ALRadioButtonStyle
     
     // MARK: - Life cycle
-    init(item: ALRadioItem, style: ALRadioGroupStyle) {
+    init(item: ALRadioItem, style: ALRadioButtonStyle) {
         self.style = style
         super.init(frame: .zero)
         titleLabel.text = item.title
@@ -147,7 +193,7 @@ private extension ALRadioButton {
         addSubview(itemView)
         itemView.addSubview(titleStackView)
         
-        itemHeightConstraint = itemView.heightAnchor.constraint(equalToConstant: itemHeight)
+        itemHeightConstraint = itemView.heightAnchor.constraint(equalToConstant: buttonHeight)
         itemView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             itemHeightConstraint!,
@@ -193,7 +239,7 @@ private extension ALRadioButton {
         addSubview(itemView)
         itemView.addSubview(titleStackView)
         
-        itemHeightConstraint = itemView.heightAnchor.constraint(equalToConstant: itemHeight)
+        itemHeightConstraint = itemView.heightAnchor.constraint(equalToConstant: buttonHeight)
         itemView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             itemHeightConstraint!,

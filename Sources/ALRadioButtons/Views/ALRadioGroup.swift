@@ -1,18 +1,42 @@
+// The MIT License (MIT)
 //
-//  ALRadioGroup.swift
-//  Wallet
+// Copyright (c) 2020 Alexandr Guzenko (alxrguz@icloud.com)
 //
-//  Created by Alexandr Guzenko on 21.06.2020.
-//  Copyright © 2020 Alexandr Guzenko. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 import UIKit
 
+
+/// `UIControl` element that combines `ALRadioButton` in a group.
 public final class ALRadioGroup: UIControl {
     // MARK: - UI Elements
     private lazy var itemsStackView = UIStackView()
     
     // MARK: - Open Proporties
+    
+    /**
+        Index of selected item
+     
+        Default is -1
+     
+        - Note: If you do not set this value, then no item from the group will be selected
+     */
     public var selectedIndex: Int = -1 {
         didSet {
             item(at: oldValue)?.isSelected = false
@@ -20,102 +44,172 @@ public final class ALRadioGroup: UIControl {
         }
     }
     
+    /**
+        Title color if `ALRadioButton` is selected
+    */
     public var selectedTitleColor: UIColor = .systemBlue {
         didSet {
             items.forEach { $0.selectedTitleColor = selectedTitleColor }
         }
     }
     
+    /**
+        Title color if `ALRadioButton` is unselected
+    */
     public var unselectedTitleColor: UIColor = .black {
         didSet {
             items.forEach { $0.unselectedTitleColor = unselectedTitleColor }
         }
     }
     
+    /**
+        Indicator (round ring with dot at center) color if `ALRadioButton` is selected
+    */
     public var selectedIndicatorColor: UIColor = .systemBlue {
         didSet {
             items.forEach { $0.selectedIndicatorColor = selectedIndicatorColor }
         }
     }
     
+    /**
+        Indicator (round ring with dot at center) color if `ALRadioButton` is unselected
+    */
     public var unselectedIndicatorColor: UIColor = .lightGray {
         didSet {
             items.forEach { $0.unselectedIndicatorColor = unselectedIndicatorColor }
         }
     }
     
+    /**
+        `ALRadioButton` subtitle color
+    */
     public var subtitleColor: UIColor = .lightGray {
         didSet {
             items.forEach { $0.subtitleLabel.textColor = subtitleColor }
         }
     }
     
-    public var itemBackgroundColor: UIColor = .clear {
+    /**
+        `ALRadioButton` background color
+     
+        - Note: Actual for `ALRadioButtonStyle.grouped` style
+    */
+    public var buttonBackgroundColor: UIColor = .clear {
         didSet {
-            items.forEach { $0.itemView.backgroundColor = itemBackgroundColor }
+            items.forEach { $0.itemView.backgroundColor = buttonBackgroundColor }
         }
     }
     
+    /**
+        Separator color
+
+        - Note: Actual for `ALRadioButtonStyle.standard` style
+    */
+    public var separatorColor: UIColor = .lightGray {
+        didSet {
+            items.forEach { $0.separatorColor = separatorColor }
+        }
+    }
+    
+    /**
+        `ALRadioButton` title font
+    */
     public var titleFont: UIFont = .systemFont(ofSize: 16, weight: .medium) {
         didSet {
             items.forEach { $0.titleLabel.font = titleFont }
         }
     }
     
+    /**
+        `ALRadioButton` subtitle font
+    */
     public var subtitleFont: UIFont = .systemFont(ofSize: 13, weight: .regular) {
         didSet {
             items.forEach { $0.subtitleLabel.font = subtitleFont }
         }
     }
     
+    /**
+        `ALRadioButton` corner radius
+     
+        - Note: Actual for `ALRadioButtonStyle.grouped` style
+    */
     public var cornerRadius: CGFloat = 14 {
         didSet {
             items.forEach { $0.itemView.layer.cornerRadius = cornerRadius }
         }
     }
     
-    public var itemHeight: CGFloat = 50 {
+    /**
+        `ALRadioButton` height
+     
+        - Note: View height at which indicator and title are located, subtitle is not included here
+    */
+    public var buttonHeight: CGFloat = 50 {
         didSet {
-            items.forEach {  $0.itemHeight = itemHeight }
+            items.forEach {  $0.buttonHeight = buttonHeight }
         }
     }
     
+    /**
+        `ALRadioButton` subtitle offset from title bottom anchor
+    */
     public var subtitleTopOffset: CGFloat = 8 {
         didSet {
             items.forEach { $0.subtitleTopOffset = subtitleTopOffset }
         }
     }
     
+    /**
+        `ALRadioButton` separator offset from title or subtitle (if added) bottom anchor
+        
+        - Note: Actual for `ALRadioButtonStyle.standard` style
+    */
     public var separatorTopOffset: CGFloat = 8 {
         didSet {
             items.forEach { $0.separatorTopOffset = separatorTopOffset }
         }
     }
     
+    /**
+        Outer ring width of indicator
+    */
     public var indicatorRingWidth: CGFloat = 2 {
         didSet {
             items.forEach { $0.radioIndicator.ringWidth = indicatorRingWidth }
         }
     }
     
+    /**
+       Indicator outer ring size
+    */
     public var indicatorRingSize: CGFloat = 22 {
         didSet {
             items.forEach { $0.radioIndicator.size = indicatorRingSize }
         }
     }
     
+    /**
+       Indentation of the circle from the outer ring
+    */
     public var indicatorCircleInset: CGFloat = 5 {
         didSet {
             items.forEach { $0.radioIndicator.selectedViewInset = indicatorCircleInset }
         }
     }
     
+    /**
+        `ALRadioButton` spacing
+    */
     public var spacing: CGFloat = 15 {
         didSet {
             itemsStackView.spacing = spacing
         }
     }
     
+    /**
+        The axis on which the `ALRadioButton` are located
+     */
     public var axis: NSLayoutConstraint.Axis = .vertical {
         didSet {
             itemsStackView.axis = axis
@@ -131,6 +225,9 @@ public final class ALRadioGroup: UIControl {
         }
     }
     
+    /**
+        Haptic response when user clicks a button
+    */
     public var hapticResponse: Bool = true
     
     // MARK: - Private Proporties
@@ -141,7 +238,12 @@ public final class ALRadioGroup: UIControl {
     private let haptic = UISelectionFeedbackGenerator()
     
     // MARK: - Life cycle
-    public init(items: [ALRadioItem], style: ALRadioGroupStyle = .standard) {
+    
+    /// `ALRadioGroup` init
+    /// - Parameters:
+    ///   - items: Array of `ALRadioItem`, one `ALRadioItem` is equivalent to one `ALRadioButton`
+    ///   - style: `ALRadioButton` style
+    public init(items: [ALRadioItem], style: ALRadioButtonStyle = .standard) {
         super.init(frame: .zero)
         setupView(items: items, style: style)
         setupConstraints()
@@ -175,7 +277,7 @@ private extension ALRadioGroup {
 
 // MARK: - Layout Setup
 private extension ALRadioGroup {
-    func setupView(items: [ALRadioItem], style: ALRadioGroupStyle) {
+    func setupView(items: [ALRadioItem], style: ALRadioButtonStyle) {
         axis = .vertical
         itemsStackView.spacing = spacing
         
@@ -190,7 +292,7 @@ private extension ALRadioGroup {
         basicAppearance(style: style)
     }
     
-    func basicAppearance(style: ALRadioGroupStyle) {
+    func basicAppearance(style: ALRadioButtonStyle) {
         switch style {
         case .grouped: groupedAppearance()
         case .standard: standardAppearance()
@@ -203,12 +305,12 @@ private extension ALRadioGroup {
         selectedTitleColor = .systemBlue
         
         if #available(iOS 13.0, *) {
-            itemBackgroundColor = .secondarySystemGroupedBackground
+            buttonBackgroundColor = .secondarySystemGroupedBackground
             subtitleColor = .secondaryLabel
             unselectedIndicatorColor = .quaternaryLabel
             unselectedTitleColor = .label
         } else {
-            itemBackgroundColor = .white
+            buttonBackgroundColor = .white
             subtitleColor = .lightGray
             unselectedIndicatorColor = .lightGray
             unselectedTitleColor = .black
@@ -218,7 +320,7 @@ private extension ALRadioGroup {
         subtitleFont = .systemFont(ofSize: 13, weight: .regular)
         subtitleTopOffset = 8
         cornerRadius = 14
-        itemHeight = 50
+        buttonHeight = 50
         
         indicatorRingSize = 22
         indicatorRingWidth = 2
@@ -228,7 +330,7 @@ private extension ALRadioGroup {
     func standardAppearance() {
         selectedIndicatorColor = .systemBlue
         selectedTitleColor = .systemBlue
-        itemBackgroundColor = .clear
+        buttonBackgroundColor = .clear
         
         if #available(iOS 13.0, *) {
             subtitleColor = .secondaryLabel
@@ -244,7 +346,7 @@ private extension ALRadioGroup {
         subtitleFont = .systemFont(ofSize: 13, weight: .regular)
         subtitleTopOffset = 0
         cornerRadius = 0
-        itemHeight = 30
+        buttonHeight = 30
         separatorTopOffset = 8
         
         indicatorRingSize = 22

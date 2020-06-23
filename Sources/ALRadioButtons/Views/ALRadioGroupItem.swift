@@ -138,7 +138,7 @@ public final class ALRadioButton: UIView {
     private var style: ALRadioButtonStyle
     
     // MARK: - Life cycle
-    init(item: ALRadioItem, style: ALRadioButtonStyle) {
+    public init(item: ALRadioItem, style: ALRadioButtonStyle) {
         self.style = style
         super.init(frame: .zero)
         titleLabel.text = item.title
@@ -177,8 +177,8 @@ private extension ALRadioButton {
         titleStackView.addArrangedSubview(radioIndicator)
         titleStackView.addArrangedSubview(titleLabel)
         
-        titleLabel.font = .systemFont(ofSize: 15, weight: .medium)
-        subtitleLabel.font = .systemFont(ofSize: 12, weight: .regular)
+        titleLabel.font = .systemFont(ofSize: 16, weight: .medium)
+        subtitleLabel.font = .systemFont(ofSize: 13, weight: .regular)
         subtitleLabel.numberOfLines = 0
     }
     

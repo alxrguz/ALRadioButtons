@@ -6,11 +6,11 @@
 
 - [Requirements](#requirements)
 - [Installation](#installation)
-  - [Swift Package Manager](#Swift Package Manager)
+  - [Swift Package Manager](#Swift-Package-Manager)
   - [CocoaPods](#CocoaPods)
   - [Manually](#Manually)
 - [Usage](#usage)
-  - [Quick Start](#Quick Start)
+  - [Quick Start](#Quick-Start)
   - [Customization](#Customization)
 - [License](https://github.com/SnapKit/SnapKit#license)
 
@@ -31,7 +31,7 @@ The [Swift Package Manager](https://swift.org/package-manager/) is a tool for ma
 
 To integrate **ALRadioButtons** click `File -> Swift Package -> Add Package Dependency` and insert:
 
-```
+```ogdl
 https://github.com/alxrguz/ALRadioButtons
 ```
 
@@ -39,7 +39,7 @@ https://github.com/alxrguz/ALRadioButtons
 
 **ALRadioButtons** is available through [CocoaPods](http://cocoapods.org/). To install it, simply add the following line to your Podfile:
 
-```
+```ruby
 pod 'ALRadioButtons'
 ```
 
@@ -53,7 +53,7 @@ If you prefer not to use either of the aforementioned dependency managers, you c
 
 #### Quick Start
 
-```
+```swift
 import ALRadioButtons
 
 class MyViewController: UIViewController {

@@ -2,23 +2,22 @@
 
 
 
-<img align="left" src="Assets/preview.png" width="500"/>
+<img align="left" src="https://github.com/alxrguz/ALRadioButtons/blob/master/Assets/preview.png" width="400"/>
 
 ### About
 
 **iOS RadioButtons with native style.**  Simple to use, inherited from UIControl, fully customizable.
 
+RadioButtons are inherited from UIControl, so you can easily manage them. 2 styles are supported: 
 
+- standard - similar to UITableView plain style 
+- grouped - similar to UITableView insertGrouped style
 
-If you liked this library, please do not forget to put a `star`, it will help me in its development.
-<br/><br/>
-<br/><br/>
-<br/><br/>
-<br/><br/>
-<br/><br/>
-<br/><br/><br/>
+Positioned both vertically and horizontally.
 
+<br/>
 
+If you liked this library, please do not forget to put a `star`, it will help me in its development. 
 
 ## Navigation
 

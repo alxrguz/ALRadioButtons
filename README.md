@@ -2,11 +2,11 @@
 
 
 
-<img align="left" src="https://github.com/alxrguz/ALRadioButtons/blob/master/Assets/preview.png" width="400"/>
+<img align="left" src="https://github.com/alxrguz/ALRadioButtons/blob/master/Assets/preview.png" width="500"/>
 
 ### About
 
-RadioButtons are inherited from UIControl, so you can easily manage them. 
+**RadioButtons** are inherited from UIControl, so you can easily manage them. 
 
 2 styles are supported: 
 
@@ -14,7 +14,7 @@ RadioButtons are inherited from UIControl, so you can easily manage them.
 
 `grouped` - similar to UITableView insertGrouped style
 
-Positioned both vertically and horizontally.
+Positioned both vertically and horizontally. Properties by type of color, indentation also customizable.
 
 <br/>
 

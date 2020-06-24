@@ -12,6 +12,16 @@ If you liked this library, please do not forget to put a `star`, it will help me
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## Navigation
 
 - [Requirements](#requirements)

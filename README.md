@@ -33,6 +33,9 @@ If you liked this library, please do not forget to put a `★ star`, it will hel
 - [Usage](#usage)
   - [Quick Start](#Quick-Start)
   - [Customization](#Customization)
+    - [Colors](#colors)
+    - [Fonts](#Fonts)
+    - [Layout](#Layout)
 - [License](https://github.com/SnapKit/SnapKit#license)
 
 ## 
@@ -105,9 +108,45 @@ class MyViewController: UIViewController {
 
 #### Customization
 
-In progress....
+#### Colors
+
+You can customize the buttons, headers and indicators colors depending on their state.
+
+```swift
+radioGroup.selectedTitleColor = .systemBlue 
+radioGroup.selectedTitleColor = .black 
+radioGroup.selectedIndicatorColor = .systemBlue 
+radioGroup.unselectedIndicatorColor = .systemBlue 
+radioGroup.subtitleColor = .lightGray 
+radioGroup.buttonBackgroundColor = .white 
+radioGroup.separatorColor = .lightGray 
+```
+
+
+
+#### Font
+
+```swift
+radioGroup.titleFont = .systemFont(ofSize: 16, weight: .medium) 
+radioGroup.subtitleFont = .systemFont(ofSize: 13, weight: .regular)
+```
+
+
+
+#### Layout
+
+```swift
+radioGroup.cornerRadius = 14 // Button corner radius, actual for .grouped style
+radioGroup.buttonHeight = 50 
+radioGroup.subtitleTopOffset = 8 // Subtitle offset from title bottom anchor
+radioGroup.separatorTopOffset = 8 // Separator offset from title or subtitle (if added) bottom anchor
+radioGroup.indicatorRingWidth = 2 // Outer ring width of indicator
+radioGroup.indicatorRingSize = 22 // Indicator outer ring size
+radioGroup.indicatorCircleInset = 5 // Indentation of the circle from the outer ring
+```
+
+
 
 ## License
 
 **ALRadioButtons** is under MIT license. See the [LICENSE](https://github.com/alxrguz/ALRadioButtons/blob/master/LICENSE) file for more info.
-

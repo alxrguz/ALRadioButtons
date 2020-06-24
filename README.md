@@ -6,18 +6,21 @@
 
 ### About
 
-**iOS RadioButtons with native style.**  Simple to use, inherited from UIControl, fully customizable.
+RadioButtons are inherited from UIControl, so you can easily manage them. 
 
-RadioButtons are inherited from UIControl, so you can easily manage them. 2 styles are supported: 
+2 styles are supported: 
 
-- standard - similar to UITableView plain style 
-- grouped - similar to UITableView insertGrouped style
+`standard` - similar to UITableView plain style 
+
+`grouped` - similar to UITableView insertGrouped style
 
 Positioned both vertically and horizontally.
 
 <br/>
 
 If you liked this library, please do not forget to put a `star`, it will help me in its development. 
+
+<br/>
 
 ## Navigation
 

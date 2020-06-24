@@ -1,6 +1,16 @@
 # ALRadioButtons
 
+<img align="left" src="/Users/alxrguz/Developer/IOS/Library/ALRadioButtons/Assets/preview.png" width="500"/>
+
+### About
+
 **iOS RadioButtons with native style.**  Simple to use, inherited from UIControl, fully customizable.
+
+
+
+If you liked this library, please do not forget to put a `star`, it will help me in its development.
+
+
 
 ## Navigation
 
@@ -71,7 +81,7 @@ class MyViewController: UIViewController {
         // ... Setup layout
         
         radioGroup.selectedIndex = 0
-				radioGroup.addTarget(self, action: #selector(radioGroupSelected(_:)), for: .valueChanged)
+      radioGroup.addTarget(self, action: #selector(radioGroupSelected(_:)), for: .valueChanged)
     }
     
     @objc private func radioGroupSelected(_ sender: ALRadioGroup) {

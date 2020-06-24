@@ -107,7 +107,10 @@ public final class ALRadioGroup: UIControl {
     */
     public var separatorColor: UIColor = .lightGray {
         didSet {
-            items.forEach { $0.separatorColor = separatorColor }
+            let lastItem = items.last
+            items.forEach {
+                $0.separatorColor = $0 == lastItem ? .clear : separatorColor
+            }
         }
     }
     
@@ -335,11 +338,13 @@ private extension ALRadioGroup {
         if #available(iOS 13.0, *) {
             subtitleColor = .secondaryLabel
             unselectedIndicatorColor = .quaternaryLabel
+            separatorColor = .quaternaryLabel
             unselectedTitleColor = .label
         } else {
             subtitleColor = .lightGray
             unselectedIndicatorColor = .lightGray
             unselectedTitleColor = .black
+            separatorColor = .lightGray
         }
         
         titleFont = .systemFont(ofSize: 16, weight: .medium)

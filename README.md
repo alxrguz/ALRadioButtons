@@ -8,19 +8,13 @@
 
 **RadioButtons** are inherited from UIControl, so you can easily manage them. 
 
-2 styles are supported: 
-
-`standard` - similar to UITableView plain style 
-
-`grouped` - similar to UITableView insertGrouped style
+2 styles are supported:  `standard` - similar to UITableView plain style and `grouped` - similar to UITableView insertGrouped style
 
 Positioned both vertically and horizontally. Properties by type of color, indentation also customizable.
 
 <br/>
 
 If you liked this library, please do not forget to put a `★ star`, it will help me in its development.
-
-<br/>
 <br/>
 
 ## Navigation

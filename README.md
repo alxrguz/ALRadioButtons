@@ -57,7 +57,7 @@ https://github.com/alxrguz/ALRadioButtons
 
 #### CocoaPods
 
-**ALRadioButtons** is available through [CocoaPods](http://cocoapods.org/). To install it, simply add the following line to your Podfile:
+**ALRadioButtons** is available through [CocoaPods](https://cocoapods.org/pods/ALRadioButtons). To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'ALRadioButtons'

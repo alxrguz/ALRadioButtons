@@ -65,7 +65,7 @@ pod 'ALRadioButtons'
 
 #### Manually
 
-If you prefer not to use either of the aforementioned dependency managers, you can integrate SnapKit into your project manually. Put `Source/ALRadioButtons` folder in your Xcode project. 
+If you prefer not to use either of the aforementioned dependency managers, you can integrate ALRadioButtons into your project manually. Put `Source/ALRadioButtons` folder in your Xcode project. 
 
 
 
@@ -91,7 +91,10 @@ class MyViewController: UIViewController {
         // ... Setup layout
         
         radioGroup.selectedIndex = 0
-      radioGroup.addTarget(self, action: #selector(radioGroupSelected(_:)), for: .valueChanged)
+      	radioGroup.addTarget(self, action: #selector(radioGroupSelected(_:)), for: .valueChanged)
+      
+      	// If the checkbox selection can be canceled, then set this property to true 
+      	radioGroup.allowDeselection = true
     }
     
     @objc private func radioGroupSelected(_ sender: ALRadioGroup) {

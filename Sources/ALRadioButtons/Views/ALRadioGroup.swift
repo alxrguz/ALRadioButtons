@@ -45,6 +45,11 @@ public final class ALRadioGroup: UIControl {
     }
     
     /**
+     If this parameter is set to true, then by tap on an already selected item, the selection will be canceled, and the `selectedIndex` will become `-1`. Default is false
+     */
+    public var allowDeselection: Bool = false
+    
+    /**
         Title color if `ALRadioButton` is selected
     */
     public var selectedTitleColor: UIColor = .systemBlue {
@@ -261,8 +266,15 @@ public final class ALRadioGroup: UIControl {
 private extension ALRadioGroup {
     @objc func radioItemTapped(_ sender: UITapGestureRecognizer) {
         guard let radioItem = (sender.view as? ALRadioButton),
-            let index = items.firstIndex(of: radioItem),
-            selectedIndex != index else { return }
+            var index = items.firstIndex(of: radioItem) else { return }
+        
+        if index == selectedIndex {
+            if allowDeselection {
+                index = -1
+            } else {
+                return
+            }
+        }
         
         if hapticResponse { haptic.selectionChanged() }
         selectedIndex = index

@@ -211,12 +211,12 @@ private extension ALRadioButton {
         
         if subtitleLabel.text != nil {
             addSubview(subtitleLabel)
-            subtitleOffsetConstraint = subtitleLabel.topAnchor.constraint(equalTo: itemView.bottomAnchor, constant: subtitleTopOffset)
+            subtitleOffsetConstraint = subtitleLabel.topAnchor.constraint(equalTo: titleStackView.bottomAnchor, constant: subtitleTopOffset)
             separatorOffsetConstraint = subtitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -separatorTopOffset)
             subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 subtitleOffsetConstraint!,
-                subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+                subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: 15),
                 subtitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
                 separatorOffsetConstraint!
             ])
@@ -259,11 +259,11 @@ private extension ALRadioButton {
         if subtitleLabel.text != nil {
             addSubview(subtitleLabel)
             
-            subtitleOffsetConstraint = subtitleLabel.topAnchor.constraint(equalTo: itemView.bottomAnchor, constant: subtitleTopOffset)
+            subtitleOffsetConstraint = subtitleLabel.topAnchor.constraint(equalTo: titleStackView.bottomAnchor, constant: subtitleTopOffset)
             subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 subtitleOffsetConstraint!,
-                subtitleLabel.leadingAnchor.constraint(equalTo: radioIndicator.leadingAnchor),
+                subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: 15),
                 subtitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
                 subtitleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
             ])

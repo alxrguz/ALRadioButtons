@@ -257,6 +257,22 @@ public final class ALRadioGroup: UIControl {
         setupConstraints()
     }
     
+    public func replaceItems(_ items: [ALRadioItem], style: ALRadioButtonStyle = .standard) {
+        let removedSubviews = itemsStackView.arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
+            itemsStackView.removeArrangedSubview(subview)
+            return allSubviews + [subview]
+        }
+        
+        for v in removedSubviews {
+            if v.superview != nil {
+                NSLayoutConstraint.deactivate(v.constraints)
+                v.removeFromSuperview()
+            }
+        }
+        setupView(items: items, style: style)
+        setupConstraints()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

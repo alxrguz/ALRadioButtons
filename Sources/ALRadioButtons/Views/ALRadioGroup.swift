@@ -68,6 +68,24 @@ public final class ALRadioGroup: UIControl {
     }
     
     /**
+        Detail color if `ALRadioButton` is selected
+    */
+    public var selectedDetailColor: UIColor = .systemBlue {
+        didSet {
+            items.forEach { $0.selectedDetailColor = selectedDetailColor }
+        }
+    }
+    
+    /**
+        Detail color if `ALRadioButton` is unselected
+     */
+    public var unselectedDetailColor: UIColor = .lightGray {
+        didSet {
+            items.forEach { $0.unselectedDetailColor = unselectedDetailColor }
+        }
+    }
+    
+    /**
         Indicator (round ring with dot at center) color if `ALRadioButton` is selected
     */
     public var selectedIndicatorColor: UIColor = .systemBlue {
@@ -125,6 +143,16 @@ public final class ALRadioGroup: UIControl {
     public var titleFont: UIFont = .systemFont(ofSize: 16, weight: .medium) {
         didSet {
             items.forEach { $0.titleLabel.font = titleFont }
+        }
+    }
+    
+    
+    /**
+        `ALRadioButton` detail font
+    */
+    public var detailFont: UIFont = .systemFont(ofSize: 16, weight: .regular) {
+        didSet {
+            items.forEach { $0.detailLabel.font = detailFont }
         }
     }
     
@@ -324,11 +352,13 @@ private extension ALRadioGroup {
             subtitleColor = .secondaryLabel
             unselectedIndicatorColor = .quaternaryLabel
             unselectedTitleColor = .label
+            unselectedDetailColor = .secondaryLabel
         } else {
             buttonBackgroundColor = .white
             subtitleColor = .lightGray
             unselectedIndicatorColor = .lightGray
             unselectedTitleColor = .black
+            unselectedDetailColor = .lightGray
         }
         
         titleFont = .systemFont(ofSize: 16, weight: .medium)
@@ -352,11 +382,13 @@ private extension ALRadioGroup {
             unselectedIndicatorColor = .quaternaryLabel
             separatorColor = .quaternaryLabel
             unselectedTitleColor = .label
+            unselectedDetailColor = .secondaryLabel
         } else {
             subtitleColor = .lightGray
             unselectedIndicatorColor = .lightGray
             unselectedTitleColor = .black
             separatorColor = .lightGray
+            unselectedDetailColor = .lightGray
         }
         
         titleFont = .systemFont(ofSize: 16, weight: .medium)

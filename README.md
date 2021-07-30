@@ -113,7 +113,9 @@ You can customize the buttons, headers and indicators colors depending on their 
 
 ```swift
 radioGroup.selectedTitleColor = .systemBlue 
-radioGroup.selectedTitleColor = .black 
+radioGroup.unselectedTitleColor = .black 
+radioGroup.selectedDetailColor = .systemBlue
+radioGroup.unselectedDetailColor = .black
 radioGroup.selectedIndicatorColor = .systemBlue 
 radioGroup.unselectedIndicatorColor = .systemBlue 
 radioGroup.subtitleColor = .lightGray 
@@ -126,7 +128,8 @@ radioGroup.separatorColor = .lightGray
 #### Font
 
 ```swift
-radioGroup.titleFont = .systemFont(ofSize: 16, weight: .medium) 
+radioGroup.titleFont = .systemFont(ofSize: 16, weight: .medium)
+radioGroup.detailFont = .systemFont(ofSize: 16, weight: .regular)
 radioGroup.subtitleFont = .systemFont(ofSize: 13, weight: .regular)
 ```
 

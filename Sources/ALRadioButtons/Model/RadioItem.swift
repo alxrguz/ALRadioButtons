@@ -33,8 +33,12 @@ public struct ALRadioItem {
     /// Optional text under the heading
     public let subtitle: String?
     
-    public init(title: String, subtitle: String? = nil) {
+    /// Optional text to the right of the title
+    public let detail: String?
+    
+    public init(title: String, subtitle: String? = nil, detail: String? = nil) {
         self.title = title
         self.subtitle = subtitle
+        self.detail = detail
     }
 }

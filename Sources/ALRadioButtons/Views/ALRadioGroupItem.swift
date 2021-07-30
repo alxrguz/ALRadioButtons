@@ -25,10 +25,13 @@ import UIKit
 public final class ALRadioButton: UIView {
     // MARK: - UI Elements
     
-    /// Radio Item title
+    /// Radio Item title label
     public lazy var titleLabel = UILabel()
     
-    /// Radio Item subtitle
+    /// Radio Item detail label
+    public lazy var detailLabel = UILabel()
+    
+    /// Radio Item subtitle label
     public lazy var subtitleLabel = UILabel()
     
     /// Round indicator
@@ -68,6 +71,24 @@ public final class ALRadioButton: UIView {
         `titleLabel` color when button unselected
     */
     public var unselectedTitleColor: UIColor = .black {
+        didSet {
+            setupColors()
+        }
+    }
+    
+    /**
+        `detailLabel` color when button selected
+    */
+    public var selectedDetailColor: UIColor = .systemBlue {
+        didSet {
+            setupColors()
+        }
+    }
+    
+    /**
+        `detailLabel` color when button unselected
+    */
+    public var unselectedDetailColor: UIColor = .lightGray {
         didSet {
             setupColors()
         }
@@ -143,6 +164,7 @@ public final class ALRadioButton: UIView {
         super.init(frame: .zero)
         titleLabel.text = item.title
         subtitleLabel.text = item.subtitle
+        detailLabel.text = item.detail
         setupView()
         setupConstraints()
     }
@@ -158,8 +180,10 @@ private extension ALRadioButton {
         titleLabel.textColor = .black
         if isSelected {
             titleLabel.textColor = selectedTitleColor
+            detailLabel.textColor = selectedDetailColor
         } else {
             titleLabel.textColor = unselectedTitleColor
+            detailLabel.textColor = unselectedDetailColor
         }
         
         separatorView.backgroundColor = separatorColor
@@ -176,8 +200,14 @@ private extension ALRadioButton {
         titleStackView.spacing = 12
         titleStackView.addArrangedSubview(radioIndicator)
         titleStackView.addArrangedSubview(titleLabel)
+        titleStackView.addArrangedSubview(detailLabel)
         
         titleLabel.font = .systemFont(ofSize: 16, weight: .medium)
+        titleLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        
+        detailLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        detailLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        
         subtitleLabel.font = .systemFont(ofSize: 13, weight: .regular)
         subtitleLabel.numberOfLines = 0
     }
@@ -229,7 +259,7 @@ private extension ALRadioButton {
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             separatorView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            separatorView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            separatorView.trailingAnchor.constraint(equalTo: titleStackView.trailingAnchor),
             separatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             separatorView.heightAnchor.constraint(equalToConstant: 0.5)
         ])

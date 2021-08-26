@@ -29,7 +29,20 @@ public final class ALRadioIndicator: UIView {
     // MARK: - Open Proporties
     public var isSelected: Bool = false {
         didSet {
-            setupColors()
+            guard oldValue != isSelected else { return }
+            if isSelected == true {
+                selectedView.transform = .init(scaleX: 0.95, y: 0.95)
+                
+                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.3) {
+                    self.setupColors()
+                }
+                
+                UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.3) {
+                    self.selectedView.transform = .identity
+                }
+            } else {
+                setupColors()
+            }
         }
     }
     

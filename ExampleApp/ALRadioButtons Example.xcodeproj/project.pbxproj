@@ -13,6 +13,7 @@
 		BB3959FB24EA71EE00B965F5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3959FA24EA71EE00B965F5 /* MainViewController.swift */; };
 		BB395A0024EA71F200B965F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB3959FF24EA71F200B965F5 /* Assets.xcassets */; };
 		BB395A0324EA71F200B965F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB395A0124EA71F200B965F5 /* LaunchScreen.storyboard */; };
+		BB4DE09026D69E7600EE0206 /* RadioGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4DE08F26D69E7600EE0206 /* RadioGroupViewController.swift */; };
 		BBFF0BE026B3EA2800E7A4D0 /* ALRadioButtons in Frameworks */ = {isa = PBXBuildFile; productRef = BBFF0BDF26B3EA2800E7A4D0 /* ALRadioButtons */; };
 		BBFF0BE526B3EB7900E7A4D0 /* ALScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFF0BE426B3EB7900E7A4D0 /* ALScrollView.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,7 @@
 		BB3959FF24EA71F200B965F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB395A0224EA71F200B965F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB395A0424EA71F200B965F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB4DE08F26D69E7600EE0206 /* RadioGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioGroupViewController.swift; sourceTree = "<group>"; };
 		BBFF0BDE26B3EA0E00E7A4D0 /* ALRadioButtons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ALRadioButtons; path = ..; sourceTree = "<group>"; };
 		BBFF0BE426B3EB7900E7A4D0 /* ALScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 			children = (
 				BB395A0D24EA727000B965F5 /* Launch */,
 				BB3959FA24EA71EE00B965F5 /* MainViewController.swift */,
+				BB4DE08F26D69E7600EE0206 /* RadioGroupViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			files = (
 				BB3959FB24EA71EE00B965F5 /* MainViewController.swift in Sources */,
 				BB3959F724EA71EE00B965F5 /* AppDelegate.swift in Sources */,
+				BB4DE09026D69E7600EE0206 /* RadioGroupViewController.swift in Sources */,
 				BB19EEC126B3F11A00CF3FE6 /* ALHeaderView.swift in Sources */,
 				BBFF0BE526B3EB7900E7A4D0 /* ALScrollView.swift in Sources */,
 			);

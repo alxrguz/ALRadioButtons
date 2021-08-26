@@ -2,22 +2,9 @@
 
 
 
-<img align="left" src="https://github.com/alxrguz/ALRadioButtons/blob/master/Assets/preview.png" width="450"/>
+<img align="left" src="https://github.com/alxrguz/ALRadioButtons/blob/main/Assets/about.png"/>
 
-### About
-
-**RadioButtons** are inherited from UIControl, so you can easily manage them. 
-
-2 styles are supported:  `standard` - similar to UITableView plain style and `grouped` - similar to UITableView insertGrouped style
-
-Positioned both vertically and horizontally. Properties by type of color, indentation also customizable.
-
-<br/>
-
-If you liked this library, please do not forget to put a `★ star`, it will help me in its development.
-<br/>
-
-<br/>
+  
 
 ## Navigation
 
@@ -80,7 +67,7 @@ class MyViewController: UIViewController {
 
     lazy var radioGroup = ALRadioGroup(items: [
         .init(title: "title1", subtitle: "subtitle1"),
-        .init(title: "title2", subtitle: "subtitle2"),
+        .init(title: "title2", subtitle: "subtitle2", detail: "Detail"),
         .init(title: "title3"),
     ], style: .grouped)
 

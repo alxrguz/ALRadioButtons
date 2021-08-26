@@ -2,7 +2,7 @@
 
 
 
-<img align="left" src="https://github.com/alxrguz/ALRadioButtons/blob/main/Assets/about.png"/>
+<img align="left" src="https://github.com/alxrguz/ALRadioButtons/blob/master/Assets/about.png"/>
 
   
 
